@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2025 弘光科大穿越機研習與競賽</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Noto Sans TC', sans-serif; margin: 0; background: #f7f9fa; color: #222; }
+    header { background: #1a237e; color: #fff; padding: 0; text-align: center; }
+    .banner-img { width: 100%; max-height: 320px; object-fit: cover; }
+    h1 { margin: 0; padding: 24px 0 8px 0; font-size: 2.5rem; }
+    .section { max-width: 900px; margin: 32px auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px #0001; padding: 32px 24px; }
+    .section h2 { color: #1a237e; margin-top: 0; }
+    .timeline { margin: 0 0 24px 0; padding: 0; list-style: none; }
+    .timeline li { margin-bottom: 12px; }
+    .prize-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+    .prize-table th, .prize-table td { border: 1px solid #bbb; padding: 8px 12px; text-align: center; }
+    .prize-table th { background: #e3e6f3; }
+    .signup-links a { display: inline-block; margin: 8px 12px 8px 0; padding: 10px 18px; background: #3949ab; color: #fff; border-radius: 6px; text-decoration: none; font-weight: 700; transition: background 0.2s; }
+    .signup-links a:hover { background: #283593; }
+    .map-img { width: 100%; max-width: 600px; display: block; margin: 24px auto 0 auto; border-radius: 8px; box-shadow: 0 2px 8px #0002; }
+    @media (max-width: 600px) {
+      .section { padding: 18px 4vw; }
+      h1 { font-size: 1.5rem; }
+    }
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 1000; }
+    .modal-content { 
+      position: relative; 
+      background: #181c2f; 
+      margin: 5% auto; 
+      padding: 24px 16px; 
+      width: 98%; max-width: 520px; max-height: 70vh; border-radius: 18px; box-shadow: 0 4px 24px #0006, 0 0 24px #3949ab44; 
+      overflow-y: auto;
+    }
+    .close { position: absolute; top: 10px; right: 18px; font-size: 28px; cursor: pointer; color: #fff; }
+    .form-section {
+      margin-bottom: 28px;
+      padding: 20px 18px 16px 18px;
+      border-radius: 16px;
+      box-shadow: 0 0 16px 2px #3949ab33 inset;
+      background: linear-gradient(135deg, #23244a 80%, #2e2e38 100%);
+      border: 2.5px solid;
+    }
+    .form-section.basic { border-image: linear-gradient(90deg, #7f7fd5, #86a8e7, #91eac9) 1; }
+    .form-section.identity { border-image: linear-gradient(90deg, #f7971e, #ffd200, #f7971e) 1; }
+    .form-section.lunch { border-image: linear-gradient(90deg, #ff5858, #f09819, #ff5858) 1; }
+    .form-section h3 {
+      margin-top: 0; margin-bottom: 16px; font-size: 1.18em; letter-spacing: 1px; color: #fff; text-shadow: 0 2px 8px #0008;
+    }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; margin-bottom: 4px; font-weight: 700; color: #e0e0e0; }
+    .form-group input[type="text"], .form-group input[type="tel"] {
+      width: 100%; padding: 8px; border: 1.5px solid #3949ab; border-radius: 6px; background: #23244a; color: #fff; font-size: 1em;
+      box-shadow: 0 0 8px #3949ab33 inset;
+    }
+    .form-group input[type="email"] {
+      width: 100%; padding: 8px; border: 1.5px solid #3949ab; border-radius: 6px; background: #23244a; color: #fff; font-size: 1em;
+      box-shadow: 0 0 8px #3949ab33 inset;
+    }
+    .form-group input[type="email"]:focus {
+      outline: none; border-color: #86a8e7; box-shadow: 0 0 8px #86a8e7cc;
+    }
+    .form-group .radio-group { margin-top: 4px; }
+    .form-group .radio-group label {
+      display: inline-block; margin-right: 18px; font-weight: normal; color: #fff; background: #23244a; padding: 6px 18px; border-radius: 8px; border: 1.5px solid #3949ab; transition: border 0.2s, color 0.2s, background 0.2s;
+    }
+    .form-group .radio-group input[type="radio"]:checked + label {
+      border: 2px solid #ffd200; color: #ffd200; background: #23244a;
+    }
+    .submit-btn {
+      background: linear-gradient(90deg, #7f7fd5, #86a8e7, #91eac9);
+      color: #23244a; border: none; padding: 12px 32px; border-radius: 8px; cursor: pointer; font-weight: 700; font-size: 1.1em;
+      box-shadow: 0 2px 12px #3949ab44;
+      margin: 0 auto; display: block;
+      transition: background 0.2s, color 0.2s;
+    }
+    .submit-btn:hover {
+      background: linear-gradient(90deg, #f7971e, #ffd200, #f7971e);
+      color: #23244a;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="20250524-FPV-Drone.png" alt="2025 FPV Drone Banner" class="banner-img">
+    <h1>2025 弘光科大穿越機研習與競賽</h1>
+    <div style="padding-bottom: 16px;">2025/05/24</div>
+  </header>
+  <div class="section">
+    <h2>一、競賽目的</h2>
+    <p>「2025弘光科大穿越機研習與競賽」旨在結合技職教育4.0的核心理念，強調適性揚材與學用合一，透過創新科技賽事激發學生潛能與職業興趣，培育未來產業所需的實務技能與創意思維。比賽不僅是一場技術較量，更是一個激勵學習、啟發創新的平台，讓學生在探索無人機應用的同時，培養跨領域整合能力，展現技職教育「務實致用、創新引領」的價值與特色。</p>
+  </div>
+  <div class="section">
+    <h2>二、活動時程</h2>
+    <ul class="timeline">
+      <li>08:30-09:00 報到</li>
+      <li>09:00-09:20 開幕與賽事說明</li>
+      <li>09:20-12:00 競賽進行</li>
+      <li>12:00-13:00 午餐休息</li>
+      <li>13:00-16:00 競賽進行</li>
+      <li>16:00-16:30 頒獎與閉幕</li>
+    </ul>
+  </div>
+  <div class="section">
+    <h2>三、賽事獎金</h2>
+    <table class="prize-table">
+      <tr><th>競賽項目</th><th>名次</th><th>獎金</th></tr>
+      <tr><td rowspan="5">穿越無人機闖關競速賽</td><td>第一名</td><td>2000元</td></tr>
+      <tr><td>第二名</td><td>1500元</td></tr>
+      <tr><td>第三名</td><td>1000元</td></tr>
+      <tr><td>第四名</td><td>500元</td></tr>
+      <tr><td>第五名</td><td>300元</td></tr>
+      <tr><td rowspan="5">入門無人機競速闖關賽</td><td>第一名</td><td>2000元</td></tr>
+      <tr><td>第二名</td><td>1500元</td></tr>
+      <tr><td>第三名</td><td>1000元</td></tr>
+      <tr><td>第四名</td><td>500元</td></tr>
+      <tr><td>第五名</td><td>300元</td></tr>
+      <tr><td rowspan="5">入門無人機團體解題競速闖關賽</td><td>第一名</td><td>2200元</td></tr>
+      <tr><td>第二名</td><td>1600元</td></tr>
+      <tr><td>第三名</td><td>1100元</td></tr>
+      <tr><td>第四名</td><td>600元</td></tr>
+      <tr><td>第五名</td><td>400元</td></tr>
+    </table>
+  </div>
+  <div class="section">
+    <h2>四、報名</h2>
+    <div class="signup-links">
+      <a href="#signup4">無人機與穿越機研習報名表</a>
+      <a href="#signup1">競賽一：穿越無人機闖關競速賽</a>
+      <a href="#signup2">競賽二：入門無人機競速闖關賽</a>
+      <a href="#signup3">競賽三：入門無人機團體解題競速闖關賽</a>
+    </div>
+  </div>
+  <div class="section">
+    <h2>五、競賽場地與交通資訊</h2>
+    <p>競賽場地於本校後方的智慧科技大樓七樓無人機教育中心</p>
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 32px;">
+      <div style="flex: 1 1 280px; min-width: 220px; text-align: center;">
+        <img src="弘光校區平面圖.jpg" alt="弘光校園平面圖" class="map-img" style="margin: 0 auto 8px auto;">
+        <div style="font-size: 1.1em; color: #333; margin-top: 4px;">學校平面圖</div>
+      </div>
+      <ul style="flex: 2 1 320px; min-width: 220px; margin: 0;">
+        <li>GPS座標：24.21612232201235, 120.58396194693957</li>
+        <li>搭公車：請坐台中市BRT，弘光科大下車，往本校櫻花大道向上走，通過噴水池，走至本校智慧科技大樓。</li>
+        <li>騎機車：請從弘光大門(往沙鹿方向)下一個紅綠燈右轉，一直騎到底右轉，停入本校機車停車場，再往右側下方走至本校智慧科技大樓。</li>
+        <li>開車：入校門後，往本校櫻花大道向上開，繞過本校智慧科技大樓，停在本校操場，往操場另一側走至本校智慧科技大樓。</li>
+      </ul>
+    </div>
+  </div>
+  <div class="section" id="signup4">
+    <h2>無人機與穿越機研習報名表</h2>
+    <a href="#" onclick="document.getElementById('modal4').style.display='block'; return false;" style="display: inline-block; margin-top: 12px; padding: 10px 20px; background: #3949ab; color: #fff; border-radius: 6px; text-decoration: none; font-weight: 700; transition: background 0.2s;">點擊報名</a>
+  </div>
+  <div class="section" id="signup1">
+    <h2>競賽一：穿越無人機闖關競速賽報名表單</h2>
+    <a href="#" onclick="document.getElementById('modal1').style.display='block'; return false;" style="display: inline-block; margin-top: 12px; padding: 10px 20px; background: #3949ab; color: #fff; border-radius: 6px; text-decoration: none; font-weight: 700; transition: background 0.2s;">點擊報名</a>
+  </div>
+  <div class="section" id="signup2">
+    <h2>競賽二：入門無人機競速闖關賽報名表單</h2>
+    <a href="#" onclick="document.getElementById('modal2').style.display='block'; return false;" style="display: inline-block; margin-top: 12px; padding: 10px 20px; background: #3949ab; color: #fff; border-radius: 6px; text-decoration: none; font-weight: 700; transition: background 0.2s;">點擊報名</a>
+  </div>
+  <div class="section" id="signup3">
+    <h2>競賽三：入門無人機團體解題競速闖關賽報名表單</h2>
+    <a href="#" onclick="document.getElementById('modal3').style.display='block'; return false;" style="display: inline-block; margin-top: 12px; padding: 10px 20px; background: #3949ab; color: #fff; border-radius: 6px; text-decoration: none; font-weight: 700; transition: background 0.2s;">點擊報名</a>
+  </div>
+  <div id="modal4" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="document.getElementById('modal4').style.display='none';">&times;</span>
+      <h2 style="color:#ffd200;text-align:center;margin-bottom:12px;">無人機與穿越機研習報名表</h2>
+      <div style="color:#ffd200;text-align:center;margin-bottom:8px;font-weight:700;">研習時間：09:00-12:00</div>
+      <div style="color:#fff;text-align:left;margin-bottom:18px;line-height:1.7;">內容包括無人機與穿越機基本知識、穿越機週邊、穿越機賽事、穿越機模擬器、穿越機的調校、維護、維修以及穿越機飛行表演。</div>
+      <form>
+        <div class="form-section basic">
+          <h3>基本資料</h3>
+          <div class="form-group">
+            <label for="lastname4">姓：</label>
+            <input type="text" id="lastname4" name="lastname" required>
+          </div>
+          <div class="form-group">
+            <label for="firstname4">名：</label>
+            <input type="text" id="firstname4" name="firstname" required>
+          </div>
+          <div class="form-group">
+            <label for="email4">電子郵件：</label>
+            <input type="email" id="email4" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone4">手機號碼：</label>
+            <input type="tel" id="phone4" name="phone" required>
+          </div>
+        </div>
+        <div class="form-section identity">
+          <h3>身分資訊</h3>
+          <div class="form-group">
+            <label>身分：</label>
+            <div class="radio-group">
+              <input type="radio" id="student4" name="identity4" value="學生" required><label for="student4">學生</label>
+              <input type="radio" id="teacher4" name="identity4" value="老師" required><label for="teacher4">老師</label>
+              <input type="radio" id="other4" name="identity4" value="校外人士" required><label for="other4">校外人士</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="school4">學校：</label>
+            <input type="text" id="school4" name="school" required>
+          </div>
+          <div class="form-group">
+            <label for="department4">科系：</label>
+            <input type="text" id="department4" name="department" required>
+          </div>
+          <div class="form-group">
+            <label for="grade4">年級：</label>
+            <input type="text" id="grade4" name="grade" required>
+          </div>
+        </div>
+        <div class="form-section lunch">
+          <h3>便當選擇</h3>
+          <div class="form-group">
+            <label>便當選項：</label>
+            <div class="radio-group">
+              <input type="radio" id="meat4" name="lunch4" value="葷食" required><label for="meat4">葷食</label>
+              <input type="radio" id="veg4" name="lunch4" value="素食" required><label for="veg4">素食</label>
+              <input type="radio" id="none4" name="lunch4" value="不需要提供" required><label for="none4">不需要提供</label>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="submit-btn">提交</button>
+      </form>
+    </div>
+  </div>
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="document.getElementById('modal1').style.display='none';">&times;</span>
+      <h2 style="color:#ffd200;text-align:center;margin-bottom:12px;">競賽一：穿越無人機闖關競速賽報名表單</h2>
+      <div style="color:#ffd200;text-align:center;margin-bottom:8px;font-weight:700;">單人賽</div>
+      <div style="color:#fff;text-align:left;margin-bottom:18px;line-height:1.7;">飛手需自備3吋(含)以下穿越涵道機(禁止無槳葉保護圈之無人機報名競賽)，飛手需戴穿越機眼鏡，競賽時飛機需帶框。FlyCat與社會人士請報此組，不要重複報名入門競速組。</div>
+      <form>
+        <div class="form-section basic">
+          <h3>基本資料</h3>
+          <div class="form-group">
+            <label for="lastname1">姓：</label>
+            <input type="text" id="lastname1" name="lastname" required>
+          </div>
+          <div class="form-group">
+            <label for="firstname1">名：</label>
+            <input type="text" id="firstname1" name="firstname" required>
+          </div>
+          <div class="form-group">
+            <label for="email1">電子郵件：</label>
+            <input type="email" id="email1" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone1">手機號碼：</label>
+            <input type="tel" id="phone1" name="phone" required>
+          </div>
+        </div>
+        <div class="form-section identity">
+          <h3>身分資訊</h3>
+          <div class="form-group">
+            <label>身分：</label>
+            <div class="radio-group">
+              <input type="radio" id="student1" name="identity1" value="學生" required><label for="student1">學生</label>
+              <input type="radio" id="teacher1" name="identity1" value="老師" required><label for="teacher1">老師</label>
+              <input type="radio" id="other1" name="identity1" value="校外人士" required><label for="other1">校外人士</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="school1">學校：</label>
+            <input type="text" id="school1" name="school" required>
+          </div>
+          <div class="form-group">
+            <label for="department1">科系：</label>
+            <input type="text" id="department1" name="department" required>
+          </div>
+          <div class="form-group">
+            <label for="grade1">年級：</label>
+            <input type="text" id="grade1" name="grade" required>
+          </div>
+        </div>
+        <div class="form-section lunch">
+          <h3>便當選擇</h3>
+          <div class="form-group">
+            <label>便當選項：</label>
+            <div class="radio-group">
+              <input type="radio" id="meat1" name="lunch1" value="葷食" required><label for="meat1">葷食</label>
+              <input type="radio" id="veg1" name="lunch1" value="素食" required><label for="veg1">素食</label>
+              <input type="radio" id="none1" name="lunch1" value="不需要提供" required><label for="none1">不需要提供</label>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="submit-btn">提交</button>
+      </form>
+    </div>
+  </div>
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="document.getElementById('modal2').style.display='none';">&times;</span>
+      <h2 style="color:#ffd200;text-align:center;margin-bottom:12px;">競賽二：入門無人機競速闖關賽報名表單</h2>
+      <div style="color:#ffd200;text-align:center;margin-bottom:8px;font-weight:700;">單人賽(限學生身份，大學以下)</div>
+      <div style="color:#fff;text-align:left;margin-bottom:18px;line-height:1.7;">操控大會提供之Tello無人機或自備2吋以下無人機。有多年經驗的飛手請不要降維打級無人機小幼苗，報名此競賽，謝謝。</div>
+      <form>
+        <div class="form-section basic">
+          <h3>基本資料</h3>
+          <div class="form-group">
+            <label for="lastname2">姓：</label>
+            <input type="text" id="lastname2" name="lastname" required>
+          </div>
+          <div class="form-group">
+            <label for="firstname2">名：</label>
+            <input type="text" id="firstname2" name="firstname" required>
+          </div>
+          <div class="form-group">
+            <label for="email2">電子郵件：</label>
+            <input type="email" id="email2" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone2">手機號碼：</label>
+            <input type="tel" id="phone2" name="phone" required>
+          </div>
+        </div>
+        <div class="form-section identity">
+          <h3>身分資訊</h3>
+          <div class="form-group">
+            <label>身分：</label>
+            <div class="radio-group">
+              <input type="radio" id="student2" name="identity2" value="學生" required><label for="student2">學生</label>
+              <input type="radio" id="teacher2" name="identity2" value="老師" required><label for="teacher2">老師</label>
+              <input type="radio" id="other2" name="identity2" value="校外人士" required><label for="other2">校外人士</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="school2">學校：</label>
+            <input type="text" id="school2" name="school" required>
+          </div>
+          <div class="form-group">
+            <label for="department2">科系：</label>
+            <input type="text" id="department2" name="department" required>
+          </div>
+          <div class="form-group">
+            <label for="grade2">年級：</label>
+            <input type="text" id="grade2" name="grade" required>
+          </div>
+        </div>
+        <div class="form-section lunch">
+          <h3>便當選擇</h3>
+          <div class="form-group">
+            <label>便當選項：</label>
+            <div class="radio-group">
+              <input type="radio" id="meat2" name="lunch2" value="葷食" required><label for="meat2">葷食</label>
+              <input type="radio" id="veg2" name="lunch2" value="素食" required><label for="veg2">素食</label>
+              <input type="radio" id="none2" name="lunch2" value="不需要提供" required><label for="none2">不需要提供</label>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="submit-btn">提交</button>
+      </form>
+    </div>
+  </div>
+  <div id="modal3" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="document.getElementById('modal3').style.display='none';">&times;</span>
+      <h2 style="color:#ffd200;text-align:center;margin-bottom:12px;">競賽三：入門無人機團體解題競速闖關賽報名表單</h2>
+      <div style="color:#ffd200;text-align:center;margin-bottom:8px;font-weight:700;">三人一組</div>
+      <div style="color:#fff;text-align:left;margin-bottom:18px;line-height:1.7;">一人擔任飛手，操控大會提供之Tello無人機或自備2吋以下無人機，隊友擔任解題手。為求公平，一人僅限歸屬一組，不得報名多組參賽。</div>
+      <form>
+        <div class="form-section basic">
+          <h3>基本資料</h3>
+          <div class="form-group">
+            <label for="lastname3">姓：</label>
+            <input type="text" id="lastname3" name="lastname" required>
+          </div>
+          <div class="form-group">
+            <label for="firstname3">名：</label>
+            <input type="text" id="firstname3" name="firstname" required>
+          </div>
+          <div class="form-group">
+            <label for="email3">電子郵件：</label>
+            <input type="email" id="email3" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone3">手機號碼：</label>
+            <input type="tel" id="phone3" name="phone" required>
+          </div>
+        </div>
+        <div class="form-section identity">
+          <h3>身分資訊</h3>
+          <div class="form-group">
+            <label>身分：</label>
+            <div class="radio-group">
+              <input type="radio" id="student3" name="identity3" value="學生" required><label for="student3">學生</label>
+              <input type="radio" id="teacher3" name="identity3" value="老師" required><label for="teacher3">老師</label>
+              <input type="radio" id="other3" name="identity3" value="校外人士" required><label for="other3">校外人士</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="school3">學校：</label>
+            <input type="text" id="school3" name="school" required>
+          </div>
+          <div class="form-group">
+            <label for="department3">科系：</label>
+            <input type="text" id="department3" name="department" required>
+          </div>
+          <div class="form-group">
+            <label for="grade3">年級：</label>
+            <input type="text" id="grade3" name="grade" required>
+          </div>
+        </div>
+        <div class="form-section lunch">
+          <h3>便當選擇</h3>
+          <div class="form-group">
+            <label>便當選項：</label>
+            <div class="radio-group">
+              <input type="radio" id="meat3" name="lunch3" value="葷食" required><label for="meat3">葷食</label>
+              <input type="radio" id="veg3" name="lunch3" value="素食" required><label for="veg3">素食</label>
+              <input type="radio" id="none3" name="lunch3" value="不需要提供" required><label for="none3">不需要提供</label>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="submit-btn">提交</button>
+      </form>
+    </div>
+  </div>
+  <footer style="text-align:center;color:#888;padding:24px 0 12px 0;font-size:0.95em;">
+    &copy; 2025 弘光科技大學 無人機教育中心
+  </footer>
+</body>
+</html> 
